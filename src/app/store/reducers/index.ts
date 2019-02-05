@@ -5,7 +5,7 @@ import {
   ActionReducer,
   MetaReducer
 } from "@ngrx/store";
-import * as fromFilms from "./Table";
+import * as fromFilms from "./TableReducer";
 
 export interface State {
   films: fromFilms.State;
