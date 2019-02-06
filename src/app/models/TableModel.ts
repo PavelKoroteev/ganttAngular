@@ -1,6 +1,6 @@
-export interface TableModel {
+export default interface TableModel {
   id: number;
   name: string;
-  img: string;
+  url: string;
   description: string;
 }

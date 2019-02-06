@@ -5,7 +5,7 @@ import {
   MatButtonModule,
   MatGridListModule,
   MatTableModule
- } from '@angular/material';
+} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,13 +14,16 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ContentComponent } from './content/content.component';
 import { TableComponent } from './table/table.component';
 import { GanttComponent } from './gantt/gantt.component';
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './reducers/TableReducer';
+
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
     ContentComponent,
     TableComponent,
-    GanttComponent,
+    GanttComponent
   ],
   imports: [
     BrowserModule,
@@ -29,9 +32,12 @@ import { GanttComponent } from './gantt/gantt.component';
     MatToolbarModule,
     MatButtonModule,
     MatGridListModule,
-    MatTableModule
+    MatTableModule,
+    StoreModule.forRoot({
+      tutorial: reducer
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
