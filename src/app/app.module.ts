@@ -10,12 +10,16 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToolbarComponent } from './toolbar/toolbar.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { ContentComponent } from './content/content.component';
-import { TableComponent } from './table/table.component';
-import { GanttComponent } from './gantt/gantt.component';
+import { TableComponent } from './components/table/table.component';
+import { GanttComponent } from './components/gantt/gantt.component';
 import { StoreModule } from '@ngrx/store';
 import { reducer } from './reducers/TableReducer';
+import { TaskComponent } from './components/task/task.component';
+import { SubtaskComponent } from './components/subtask/subtask.component';
+import { SectionComponent } from './components/section/section.component';
+import { MilestoneComponent } from './components/milestone/milestone.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { reducer } from './reducers/TableReducer';
     ToolbarComponent,
     ContentComponent,
     TableComponent,
-    GanttComponent
+    GanttComponent,
+    TaskComponent,
+    SubtaskComponent,
+    SectionComponent,
+    MilestoneComponent
   ],
   imports: [
     BrowserModule,

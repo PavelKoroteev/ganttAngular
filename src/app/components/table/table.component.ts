@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import TableModel from '../models/TableModel';
-import { AppState } from './../app.state';
+import TableModel from '../../models/TableModel';
+import { AppState } from '../../app.state';
 
 @Component({
   selector: 'app-table',
@@ -18,5 +18,5 @@ export class TableComponent implements OnInit {
 
   ngOnInit() {}
 
-  displayedColumns: string[] = ['name', 'weight'];
+  displayedColumns: string[] = ['title', 'assignee'];
 }
