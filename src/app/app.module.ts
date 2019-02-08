@@ -20,6 +20,7 @@ import { TaskComponent } from './components/task/task.component';
 import { SubtaskComponent } from './components/subtask/subtask.component';
 import { SectionComponent } from './components/section/section.component';
 import { MilestoneComponent } from './components/milestone/milestone.component';
+import { TimelineComponent } from './components/timeline/timeline.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MilestoneComponent } from './components/milestone/milestone.component';
     TaskComponent,
     SubtaskComponent,
     SectionComponent,
-    MilestoneComponent
+    MilestoneComponent,
+    TimelineComponent
   ],
   imports: [
     BrowserModule,
