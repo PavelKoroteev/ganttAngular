@@ -1,5 +1,7 @@
 <app-timeline></app-timeline>
-
+<div class="ganttContaiment">
+  <div *ngFor="let row of (rows | async)"><app-task></app-task></div>
+</div>
 <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <pattern id="smallGrid" width="8" height="8" patternUnits="userSpaceOnUse">
