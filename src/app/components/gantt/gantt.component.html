@@ -1,11 +1,9 @@
 <app-timeline></app-timeline>
-<div class="ganttContaiment">
-  <div *ngFor="let row of (rows | async)">
-    <app-task *ngIf="row.type === 'task'"></app-task>
-    <app-section *ngIf="row.type === 'section'"></app-section>
-    <app-milestone *ngIf="row.type === 'milestone'"></app-milestone>
-    <app-subtask *ngIf="row.type === 'subtask'"></app-subtask>
-  </div>
+<div *ngFor="let row of (rows | async)">
+  <app-task *ngIf="row.type === 'task'"></app-task>
+  <app-section *ngIf="row.type === 'section'"></app-section>
+  <app-milestone *ngIf="row.type === 'milestone'"></app-milestone>
+  <app-subtask *ngIf="row.type === 'subtask'"></app-subtask>
 </div>
 <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
   <defs>
@@ -19,4 +17,10 @@
   </defs>
 
   <rect width="100%" height="100%" fill="url(#grid)" />
+  <ng-template ngFor let-row [ngForOf]="rows | async">
+    <app-task></app-task>
+    <app-section *ngIf="row.type === 'section'"></app-section>
+    <app-milestone *ngIf="row.type === 'milestone'"></app-milestone>
+    <app-subtask *ngIf="row.type === 'subtask'"></app-subtask>
+  </ng-template>
 </svg>

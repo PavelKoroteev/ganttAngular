@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../app.state';
 import TableModel from '../../models/TableModel';
+import { ElementTypes } from '../../models/TableModel';
 import * as TutorialActions from '../../actions/Table';
 import { Observable } from 'rxjs';
 @Component({
@@ -20,7 +21,8 @@ export class ToolbarComponent implements OnInit {
         name: name,
         url: url,
         id: 1,
-        description: ''
+        description: '',
+        type: ElementTypes.Task
       })
     );
   }
