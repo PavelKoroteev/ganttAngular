@@ -1,13 +1,15 @@
-import { Action } from '@ngrx/store';
-import TableModel from './../models/TableModel';
-import * as TableActions from './../actions/Table';
+import { Action } from "@ngrx/store";
+import TableModel from "./../models/TableModel";
+import { ElementTypes } from "./../models/TableModel";
+import * as TableActions from "./../actions/Table";
 
 // Section 1
 const initialState: TableModel = {
-  name: 'Initial Tutorial',
-  url: 'http://google.com',
+  name: "Initial Tutorial",
+  url: "http://google.com",
   id: 1,
-  description: ''
+  description: "",
+  type: ElementTypes.Task
 };
 
 // Section 2
