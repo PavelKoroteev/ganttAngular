@@ -1,10 +1,4 @@
 <app-timeline></app-timeline>
-<div *ngFor="let row of (rows | async)">
-  <app-task *ngIf="row.type === 'task'"></app-task>
-  <app-section *ngIf="row.type === 'section'"></app-section>
-  <app-milestone *ngIf="row.type === 'milestone'"></app-milestone>
-  <app-subtask *ngIf="row.type === 'subtask'"></app-subtask>
-</div>
 <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <pattern id="smallGrid" width="8" height="8" patternUnits="userSpaceOnUse">
@@ -18,9 +12,9 @@
 
   <rect width="100%" height="100%" fill="url(#grid)" />
   <ng-template ngFor let-row [ngForOf]="rows | async">
-    <app-task></app-task>
-    <app-section *ngIf="row.type === 'section'"></app-section>
-    <app-milestone *ngIf="row.type === 'milestone'"></app-milestone>
-    <app-subtask *ngIf="row.type === 'subtask'"></app-subtask>
+    <svg:g app-task></svg:g>
+    <svg:g app-section *ngIf="row.type === 'section'"></svg:g>
+    <svg:g app-milestone *ngIf="row.type === 'milestone'"></svg:g>
+    <svg:g app-subtask *ngIf="row.type === 'subtask'"></svg:g>
   </ng-template>
 </svg>
