@@ -6,7 +6,8 @@ import {
   MatGridListModule,
   MatFormFieldModule,
   MatTableModule,
-  MatInputModule
+  MatInputModule,
+  MatSelectModule
 } from "@angular/material";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -47,6 +48,7 @@ import { TimelineComponent } from "./components/timeline/timeline.component";
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
     StoreModule.forRoot({
       tutorial: reducer
     })
