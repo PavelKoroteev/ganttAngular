@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
+import TableModel from '../../models/TableModel';
 
 @Component({
   selector: "[app-task]",
@@ -6,6 +7,9 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./task.component.css"]
 })
 export class TaskComponent implements OnInit {
+  @Input() index: number;
+  @Input() data: TableModel;
+
   constructor() {}
 
   ngOnInit() {}
