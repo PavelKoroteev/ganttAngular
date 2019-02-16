@@ -1,4 +1,3 @@
-import { Action } from "@ngrx/store";
 import TableModel from "./../models/TableModel";
 import { ElementTypes } from "./../models/TableModel";
 import * as TableActions from "./../actions/Table";
@@ -6,10 +5,11 @@ import * as TableActions from "./../actions/Table";
 // Section 1
 const initialState: TableModel = {
   name: "Initial Tutorial",
-  url: "http://google.com",
   id: 1,
   description: "",
-  type: ElementTypes.Task
+  type: ElementTypes.Task,
+  startDate: 1550329570032,
+  duration: 14400000
 };
 
 // Section 2
