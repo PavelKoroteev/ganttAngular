@@ -1,26 +1,29 @@
 <svg:g>
-  <svg:rect
-    fill="#4a90d6"
-    fill-rule="nonzero"
-    [attr.x]="data.startDate - 1550329570032"
-    [attr.y]="58 * index + 19"
-    [attr.width]="data.duration / 60000"
-    height="20"
-    style="color: rgb(0, 0, 0);"
-    rx="10"
-    ry="10"
-  ></svg:rect>
-  <text x="20" [attr.y]="58 * index + 29" class="small">{{ index }}</text>
-  <svg:circle
-    (mousedown)="moveStartOfTask($event)"
-    cx="10"
-    [attr.cy]="58 * index + 29"
-    r="10"
-  />
-  <svg:circle
-    (mousedown)="moveEndOfTask($event)"
-    cx="140"
-    [attr.cy]="58 * index + 29"
-    r="10"
-  />
+    <svg:rect
+        fill="#4a90d6"
+        fill-rule="nonzero"
+        [attr.x]="data.startDate - 1550329570032"
+        [attr.y]="58 * index + 19"
+        [attr.width]="data.duration / 60000"
+        height="20"
+        style="color: rgb(0, 0, 0);"
+        rx="10"
+        ry="10"
+    ></svg:rect>
+    <text x="20" [attr.y]="58 * index + 29" class="small">{{ data.name }}</text>
+    <svg:circle
+        (mousedown)="moveStartOfTask($event)"
+        cx="10"
+        [attr.cy]="58 * index + 29"
+        r="10"
+    />
+    <mat-icon>home</mat-icon>
+
+    <svg:circle
+        (mousedown)="moveEndOfTask($event)"
+        cx="140"
+        [attr.cy]="58 * index + 29"
+        r="10"
+    />
+    <mat-icon>home</mat-icon>
 </svg:g>
