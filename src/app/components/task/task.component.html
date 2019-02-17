@@ -10,10 +10,17 @@
         rx="10"
         ry="10"
     ></svg:rect>
-    <text x="20" [attr.y]="58 * index + 29" class="small">{{ data.name }}</text>
+    <text
+        [attr.x]="data.startDate - 1550329570032 + 20"
+        color="white"
+        [attr.y]="58 * index + 35"
+        class="small"
+    >
+        {{ data.name }}
+    </text>
     <svg:circle
         (mousedown)="moveStartOfTask($event)"
-        cx="10"
+        [attr.cx]="data.startDate - 1550329570032 + 10"
         [attr.cy]="58 * index + 29"
         r="10"
     />
@@ -21,7 +28,7 @@
 
     <svg:circle
         (mousedown)="moveEndOfTask($event)"
-        cx="140"
+        [attr.cx]="data.startDate - 1550329570032 - 10 + data.duration / 60000"
         [attr.cy]="58 * index + 29"
         r="10"
     />
