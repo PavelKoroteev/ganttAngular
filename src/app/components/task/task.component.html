@@ -2,7 +2,7 @@
   <svg:rect
     fill="#4a90d6"
     fill-rule="nonzero"
-    x="0"
+    [attr.x]="data.startDate - 1550329570032"
     [attr.y]="58 * index + 19"
     [attr.width]="data.duration / 60000"
     height="20"
@@ -10,7 +10,7 @@
     rx="10"
     ry="10"
   ></svg:rect>
-  <text x="20" [attr.y]="58 * index + 29" class="small">{{ data.name }}</text>
+  <text x="20" [attr.y]="58 * index + 29" class="small">{{ index }}</text>
   <svg:circle
     (mousedown)="moveStartOfTask($event)"
     cx="10"

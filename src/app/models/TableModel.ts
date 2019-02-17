@@ -1,8 +1,8 @@
 export enum ElementTypes {
-  Task = "task",
-  Milestone = "milestone",
-  Subtask = "subtask",
-  Section = "section"
+  Task = 'task',
+  Milestone = 'milestone',
+  Subtask = 'subtask',
+  Section = 'section'
 }
 
 export default interface TableModel {

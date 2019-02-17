@@ -1,13 +1,16 @@
-import { Component, OnInit, Input } from "@angular/core";
-import TableModel from "../../models/TableModel";
+import { Component, OnInit, Input } from '@angular/core';
+import TableModel from '../../models/TableModel';
+
 interface DragContext {
-  startPointOfMove: number;
-  type: "start" | "end";
+  startPointOfMove?: number;
+  type?: 'start' | 'end';
+  startDate?: number;
+  duration?: number;
 }
 @Component({
-  selector: "[app-task]",
-  templateUrl: "./task.component.html",
-  styleUrls: ["./task.component.css"]
+  selector: '[app-task]',
+  templateUrl: './task.component.html',
+  styleUrls: ['./task.component.css']
 })
 export class TaskComponent implements OnInit {
   @Input() index: number;
@@ -17,24 +20,39 @@ export class TaskComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+      this.dragContext = {};
+  }
 
   moveStartOfTask(e) {
     this.dragContext.startPointOfMove = e.screenX;
-    this.dragContext.type = "start";
-    document.addEventListener("move", event => this.moveSelectedPointOfTask(e));
-    console.log(e);
+      this.dragContext.startDate = this.data.startDate;
+      this.dragContext.duration = this.data.duration;
+    this.dragContext.type = 'start';
+    document.addEventListener('mousemove', this.moveSelectedPointOfTask.bind(this));
+      document.addEventListener('mouseup', () => document.removeEventListener('mousemove', this.moveSelectedPointOfTask.bind(this)));
   }
 
   moveSelectedPointOfTask(e) {
-    this.data.startDate =
-      this.data.startDate + (this.dragContext.startPointOfMove - e.screenX);
-    console.log(e);
+      if (this.dragContext.type === 'start') {
+          const delta = e.screenX - this.dragContext.startPointOfMove;
+          this.data.startDate =
+              this.dragContext.startDate + delta;
+
+          this.data.duration = this.dragContext.duration - (delta * 60000);
+      } else {
+          const delta = this.dragContext.startPointOfMove - e.screenX;
+
+          this.data.duration = this.dragContext.duration - (delta * 60000);
+      }
   }
 
   moveEndOfTask(e) {
-    this.dragContext.startPointOfMove = e.screenX;
-    this.dragContext.type = "end";
-    console.log(e);
+      this.dragContext.startPointOfMove = e.screenX;
+      this.dragContext.startDate = this.data.startDate;
+      this.dragContext.duration = this.data.duration;
+      this.dragContext.type = 'end';
+      document.addEventListener('mousemove', event => this.moveSelectedPointOfTask(event));
+      document.addEventListener('mouseup', () => document.removeEventListener('mousemove', this.moveSelectedPointOfTask.bind(this)));
   }
 }
