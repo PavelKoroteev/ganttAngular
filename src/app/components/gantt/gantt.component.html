@@ -1,20 +1,40 @@
 <app-timeline></app-timeline>
 <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <pattern id="smallGrid" width="8" height="8" patternUnits="userSpaceOnUse">
-      <path d="M 8 0 L 0 0 0 8" fill="none" stroke="gray" stroke-width="0.5" />
-    </pattern>
-    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
-      <rect width="80" height="80" fill="url(#smallGrid)" />
-      <path d="M 80 0 L 0 0 0 80" fill="none" stroke="gray" stroke-width="1" />
-    </pattern>
-  </defs>
+    <defs>
+        <pattern
+            id="smallGrid"
+            width="8"
+            height="8"
+            patternUnits="userSpaceOnUse"
+        >
+            <path
+                d="M 8 0 L 0 0 0 8"
+                fill="none"
+                stroke="gray"
+                stroke-width="0.5"
+            />
+        </pattern>
+        <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+            <rect width="80" height="80" fill="url(#smallGrid)" />
+            <path
+                d="M 80 0 L 0 0 0 80"
+                fill="none"
+                stroke="gray"
+                stroke-width="1"
+            />
+        </pattern>
+    </defs>
 
-  <rect width="100%" height="100%" fill="url(#grid)" />
-  <ng-template ngFor let-row let-i="index" [ngForOf]="rows | async">
-    <svg:g app-task [index]="i" [data]="row"></svg:g>
-    <svg:g app-section *ngIf="row.type === 'section'"></svg:g>
-    <svg:g app-milestone *ngIf="row.type === 'milestone'"></svg:g>
-    <svg:g app-subtask *ngIf="row.type === 'subtask'"></svg:g>
-  </ng-template>
+    <rect width="100%" height="100%" fill="url(#grid)" />
+    <ng-template ngFor let-row let-i="index" [ngForOf]="rows | async">
+        <svg:g
+            app-task
+            *ngIf="row.type === ElementTypes.Task"
+            [index]="i"
+            [data]="row"
+        ></svg:g>
+        <svg:g app-section *ngIf="row.type === 'section'"></svg:g>
+        <svg:g app-milestone *ngIf="row.type === 'milestone'"></svg:g>
+        <svg:g app-subtask *ngIf="row.type === 'subtask'"></svg:g>
+    </ng-template>
 </svg>

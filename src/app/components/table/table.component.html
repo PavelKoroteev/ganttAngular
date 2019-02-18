@@ -17,22 +17,43 @@
         <th mat-header-cell *matHeaderCellDef>Type</th>
         <td mat-cell *matCellDef="let element">
             <mat-form-field floatLabel="never">
-                <mat-select [(value)]="element.type" placeholder="Favorite">
-                    <mat-option>None</mat-option>
-                    <mat-option value="Yes">Yes</mat-option>
+                <mat-select
+                    [(value)]="element.type"
+                    [(ngModel)]="element.type"
+                    placeholder="Element types"
+                >
+                    <mat-option
+                        *ngFor="let type of elemenTypes"
+                        value="type.id"
+                        >{{ type.title }}</mat-option
+                    >
                 </mat-select>
             </mat-form-field>
         </td>
     </ng-container>
 
-    <ng-container matColumnDef="start">
-        <th mat-header-cell *matHeaderCellDef>Symbol</th>
-        <td mat-cell *matCellDef="let element">{{ element.start }}</td>
+    <ng-container matColumnDef="startDate">
+        <th mat-header-cell *matHeaderCellDef>startDate</th>
+        <td mat-cell *matCellDef="let element">
+            <mat-form-field>
+                <input
+                    matInput
+                    [matDatepicker]="picker"
+                    placeholder="Choose a date"
+                    [value]="element.startDate"
+                />
+                <mat-datepicker-toggle
+                    matSuffix
+                    [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </td>
     </ng-container>
 
-    <ng-container matColumnDef="due">
-        <th mat-header-cell *matHeaderCellDef>Symbol</th>
-        <td mat-cell *matCellDef="let element">{{ element.due }}</td>
+    <ng-container matColumnDef="duration">
+        <th mat-header-cell *matHeaderCellDef>Duration</th>
+        <td mat-cell *matCellDef="let element">{{ element.duration }}</td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

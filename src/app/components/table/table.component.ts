@@ -3,20 +3,29 @@ import { Observable } from "rxjs";
 import { Store } from "@ngrx/store";
 import TableModel from "../../models/TableModel";
 import { AppState } from "../../app.state";
+import { ElementTypesData } from "../../models/TableModel";
 
 @Component({
-  selector: "app-table",
-  templateUrl: "./table.component.html",
-  styleUrls: ["./table.component.css"]
+    selector: "app-table",
+    templateUrl: "./table.component.html",
+    styleUrls: ["./table.component.css"]
 })
 export class TableComponent implements OnInit {
-  dataSource: Observable<TableModel[]>;
+    dataSource: Observable<TableModel[]>;
 
-  constructor(private store: Store<AppState>) {
-    this.dataSource = store.select("tutorial");
-  }
+    elemenTypes = ElementTypesData;
 
-  ngOnInit() {}
+    constructor(private store: Store<AppState>) {
+        this.dataSource = store.select("tutorial");
+    }
 
-  displayedColumns: string[] = ["title", "assignee", "type"];
+    ngOnInit() {}
+
+    displayedColumns: string[] = [
+        "title",
+        "assignee",
+        "type",
+        "startDate",
+        "duration"
+    ];
 }
